@@ -2,7 +2,10 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use App\Http\Controllers\AuthenticationController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
@@ -11,8 +14,12 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function testValidation()
     {
-        $this->assertTrue(true);
+        $ins = new AuthenticationController();
+        $request = new Request([
+                'email' => 'sally@example.com'
+        ]);
+        $this->assertEmpty($ins->validateUser($request,['email'=>'required', 'name'=>'required']),'Error');
     }
 }
