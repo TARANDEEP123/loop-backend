@@ -14,9 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // BrandSeeder::class,
-            // ModelSeeder::class,
-            // TypeSeeder::class,
+            BrandSeeder::class,
+            ModelSeeder::class,
+            TypeSeeder::class,
             CarSeeder::class
         ]);
 
